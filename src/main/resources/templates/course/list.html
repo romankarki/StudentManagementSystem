@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>Create New Student Page</title>
+<!--<link rel="stylesheet" href="/css/hello.css"/>-->
+</head>
+<body>
+	<div layout:fragment="content">
+
+
+		<div class="row justify-content-center">
+			<div class="col-12 col-lg-10 col-xl-8">
+
+				<!-- Header -->
+				<div class="header mt-md-5">
+					<div class="header-body">
+						<div class="row align-items-center">
+							<div class="col">
+
+								<!-- Pretitle -->
+								<h6 class="header-pretitle">list of</h6>
+
+								<!-- Title -->
+								<h1 class="header-title">courses</h1>
+
+							</div>
+						</div>
+						<!-- / .row -->
+						<div class="row align-items-center">
+							<div class="col">
+
+								<!-- Nav -->
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<div>
+				<table class="table table-sm table-nowrap card-table">
+						<tbody class="list">
+							<tr th:each="courses: ${course}">
+
+									<form class="mb-4" action="#" th:action="@{/course/search}" method="get">
+<td>
+                   
+                            <label class="mb-8">
+                           <h3 font="bold"><b><b>Search by course name instead</b></b></h3> 
+                            
+                            </label>
+                            &nbsp
+                            
+								 <input type="text" name="courseName" th:value="${courses.getCourseName()}" class="form-control" >
+								 </td>
+								 <td>
+								 <br></br>
+								 <button type="submit" class="btn btn-md btn-warning btn-block"><b>search</b></button>
+									</form>
+									</td>
+									</tr>
+									
+									</table>
+									</div>
+				<!-- [[${courselist}]] -->
+			<!-- 	<div class="card"> -->
+				<div >
+
+					<table class="table table-sm table-nowrap card-table" border="1" bordercolor="white">
+						<thead>
+							<tr >
+								<th>course id</th>
+								<th>course name</th>
+								<th>description</th>
+								<th>course fees</th>
+								<!-- <th>start date</th> -->
+								<th>    action</th>
+								<!-- <th></th> -->
+							</tr>
+						</thead>
+						<tbody class="list">
+							<tr th:each="courses: ${courselist}">
+								<td class="orders-order" th:text="${courses.getCourseId()}"></td>
+								<td class="orders-order" th:text="${courses.getCourseName()}"></td>
+								<td class="orders-order" th:text="${courses.getDescription()}"></td>
+								<td class="orders-order" th:text="${courses.getCourseFees()}"></td>
+								<!-- <td class="orders-order" th:text="${courses.getStartDate()}"></td> -->
+								<td>
+									<form class="mb-4" action="#" th:action="@{/course/show}"
+										method="get">
+										<input type="hidden" name="id"
+											th:value="${courses.getCourseId()}">
+										<button type="submit" class="btn btn-primary">show</button>
+
+									</form>
+									</td>
+								
+								<!-- <form class="mb-4" action="#" th:action="@{/course/edit}"
+										method="get">
+										<input type="hidden" name="id"
+											th:value="${courses.getCourseId()}">
+										<button type="submit" class="btn btn-primary">edit</button>
+										</form> -->
+										
+										<!-- <form class="mb-4" action="#" th:action="@{/course/show}" method="get">
+
+                            
+                            <label>
+                               search
+                            </label>
+
+                           
+                          <input type="text" class="form-control" /> 
+
+								 <input type="hidden" name="id" th:value="${courses.getCourseId()}">
+									<button type="submit" class="btn btn-primary">search</button> -->
+								</td>
+							</tr>
+							<!-- 		<tr>
+							<form class="mb-4" action="#" th:action="@{/course/show}" method="get">
+
+                            Label
+                            <label>
+                               search
+                            </label>
+
+                            Input
+                          <input type="text" class="form-control" /> 
+
+								 <input type="hidden" name="id" th:value="${courses.getCourseId()}">
+									<button type="submit" class="btn btn-primary">search</button>
+							</tr>
+ -->
+						</tbody>
+					</table>
+
+
+
+				</div>
+			</div>
+		</div>
+		<!-- / .row -->
+
+
+	</div>
+
+</body>
+</html>

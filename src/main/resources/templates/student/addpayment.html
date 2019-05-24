@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>Create New Student Page</title>
+<!--<link rel="stylesheet" href="/css/hello.css"/>-->
+</head>
+<body>
+
+	<div layout:fragment="content">
+
+
+		<div class="row justify-content-center">
+			<div class="col-12 col-lg-10 col-xl-8">
+
+				<!-- Header -->
+				<div class="header mt-md-5">
+					<div class="header-body">
+						<div class="row align-items-center">
+							<div class="col">
+
+								<!-- Pretitle -->
+								<h6 class="header-pretitle">Create New</h6>
+
+								<!-- Title -->
+								<h1 class="header-title">Student payment</h1>
+
+							</div>
+						</div>
+						<!-- / .row -->
+						<div class="row align-items-center">
+							<div class="col">
+
+								<!-- Nav -->
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Form -->
+				<form class="mb-4" action="#" th:action="@{/student/addpayment}"
+					th:object="${studentpayment}" method="post">
+
+					<div class="row">
+						<div class="col-12 col-md-6">
+
+							<!-- First name -->
+							<div class="form-group">
+
+								<!-- Label -->
+								<label> First Name </label>
+
+								<!-- Input -->
+								<input type="text" th:field="*{firstName}"
+									placeholder="first_name" class="form-control" />
+
+							</div>
+
+						</div>
+						<div class="col-12 col-md-6">
+
+							<!-- Last name -->
+							<div class="form-group">
+
+								<!-- Label -->
+								<label>Last Name</label>
+
+								<!-- Input -->
+								<input type="text" th:field="*{lastName}"
+									placeholder="last_name" class="form-control" />
+
+							</div>
+
+						</div>
+						
+						<div class="col-12 col-md-6">
+
+							
+							<div class="form-group">
+
+								<label> amount </label>
+							
+								<input class="form-control mb-3" autocomplete="off" th:field="*{amount}"
+									 type="text">
+							</div> 
+
+						</div> 
+			
+	<div class="col-12 col-md-6">
+
+							
+							<div class="form-group">
+
+								<label> pay Date </label>
+
+								
+								<input class="form-control flatpickr-input"
+									data-toggle="flatpickr" type="date"  th:field="*{payDate}" >
+							</div> 
+
+						</div> 
+			
+
+
+					
+
+					<!-- / .row -->
+<!-- 
+					 <div class="row"> 
+						<div class="col-12 col-md-6 order-md-2">
+						
+
+							Joined year
+							<div class="form-group">
+
+								Label
+								<label> pay Date </label>
+
+								Input
+								<input class="form-control flatpickr-input"
+									data-toggle="flatpickr" type="date"  th:field="*{payDate}" >
+
+							</div>
+
+
+
+					</div>
+			</div> -->
+			
+			<!-- Submit -->
+			<button type="submit" class="btn btn-primary">add new
+				studentpayment</button>
+			
+		
+	<!-- / .row -->
+</form>
+
+
+	
+
+	<!-- / .row -->
+
+
+
+
+</body>
+</html>

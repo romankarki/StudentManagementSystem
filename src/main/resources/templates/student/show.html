@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>Create New Student Page</title>
+<!--<link rel="stylesheet" href="/css/hello.css"/>-->
+</head>
+<body>
+	<div layout:fragment="content">
+		<table class="table table-sm table-nowrap card-table"
+			th:each="student: ${student}">
+			<thead>
+			<tbody class="list">
+				<tr>
+					<td><b>student id</b></td>
+					<td th:text="${student.getId()}"></td>
+				</tr>
+				<tr>
+					<td><b>student name</b></td>
+					<td th:text="${student.getEmailId()}"></td>
+				</tr>
+				<tr>
+					<td><b>Birth date</b></td>
+					<td th:text="${student.getBirthDate()}"></td>
+				</tr>
+				<tr>
+					<td><b>First name</b></td>
+					<td th:text="${student.getFirstName()}"></td>
+				</tr>
+				<tr>
+					<td><b>Last name</b></td>
+					<td th:text="${student.getLastName()}"></td>
+				</tr>
+			
+                 <tr>
+					<td><b>Student address</b></td>
+					<td th:text="${student.getAddress()}"></td>
+				</tr>
+				<tr>
+					<td><b>Phone number</b></td>
+					<td th:text="${student.getPhoneNumber()}"></td>
+				</tr>
+				<tr>
+					<td><b>Guardian's name</b></td>
+					<td th:text=${student.getGuardiansName()}></td>
+				</tr>
+				<tr>
+					<td><b>course fees</b></td>
+					<td th:text="${student.getCourseFees()}"></td>
+				</tr>
+				<tr>
+					<td><b>joined date</b></td>
+					<td th:text="${student.getJoinedDate()}"></td>
+				</tr>
+			</tbody>
+
+		</table>
+		<table>
+		<tr><hr></hr></tr>
+		<tr>
+		<td>
+		<form class="mb-4" action="#" th:action="@{/student/payment}"
+										method="get">
+										
+										<!-- <input type="hidden" name="id"
+											th:value="${courses.getCourseId()}"> -->
+										<button type="submit" class="btn btn-md btn-warning">&nbsp &nbsp &nbsp show payment &nbsp &nbsp &nbsp</button>
+										</form>
+										</td>
+										<td>
+										<form class="mb-4" action="#" th:action="@{/student/addpayment}"
+										method="get">
+										
+										<!-- <input type="hidden" name="id"
+											th:value="${courses.getCourseId()}"> -->
+										<button type="submit" class="btn btn-md btn-warning">&nbsp &nbsp &nbsp add payment &nbsp &nbsp &nbsp</button>
+										</form></td>
+										</tr>
+										</table>
+	</div>
+
+</body>
+</html>

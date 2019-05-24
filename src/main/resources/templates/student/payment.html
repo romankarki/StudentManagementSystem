@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>Create New Student Page</title>
+<!--<link rel="stylesheet" href="/css/hello.css"/>-->
+</head>
+<body>
+	<div layout:fragment="content">
+	<th1> Payment list</th1>
+		<table class="table table-sm table-nowrap card-table"
+			th:each="payments: ${paymentlist}">
+		
+			<tbody class="list">
+				<tr>
+					<td>student id</td>
+					<td th:text="${payments.getId()}"></td>
+				</tr>			
+				<tr> 
+					<td>First name</td>
+					<td th:text="${payments.getFirstName()}"></td>
+				</tr>
+				<tr>
+					<td>Last name</td>
+					<td th:text="${payments.getLastName()}"></td>
+				</tr>
+			
+              
+				<tr>
+					<td>amount</td>
+					<td th:text="${payments.getAmount()}"></td>
+				</tr> 
+				<tr>
+					<td>pay date</td>
+					<td th:text="${payments.getPayDate()}"></td>
+				</tr>
+			</tbody>
+
+		</table>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout">
+<head>
+    <title>Create New Student Page</title>
+    <!--<link rel="stylesheet" href="/css/hello.css"/>-->
+</head>
+<body>
+<div layout:fragment="content">
+
+   	<table class="table table-sm table-nowrap card-table" th:each="courses: ${course}">
+						<thead>
+							<tbody class="list">
+							<tr>
+								<td>course id</td>
+								<td  th:text="${courses.getCourseId()}"></td>
+								</tr>
+								<tr>
+								<td>course name</td>
+								<td  th:text="${courses.getCourseName()}"></td>
+								</tr>
+								<tr>
+								<td>description</td>
+								<td  th:text="${courses.getDescription()}"></td>
+								</tr>
+								<tr>
+								<td>Course fees</td>
+								<td  th:text="${courses.getCourseFees()}"></td>
+</tr>
+<tr>
+							<!-- 	<td>start date</td>
+								<td  th:text="${courses.getStartDate()}"></td> -->
+								
+							</tr>
+							<tr >
+							<td colspan="2">
+							
+								<form class="mb-4" action="#" th:action="@{/course/edit}"
+										method="get">
+										
+										<input type="hidden" name="id"
+											th:value="${courses.getCourseId()}">
+										<button type="submit" class="btn btn-md btn-warning">&nbsp &nbsp &nbsp edit &nbsp &nbsp &nbsp</button>
+										</form>
+								</td>
+							</tr>
+						</thead>
+					
+					</tbody>
+				
+					</table>
+</div>
+
+</body>
+</html>
